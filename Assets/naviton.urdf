@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<robot name="naviton">
+  <material name="gray">
+    <color rgba="0.8 0.8 0.8 2" />
+  </material>
+  <material name="black">
+    <color rgba="0.2 0.2 0.2 2" />
+  </material>
+  <material name="Default-Diffuse">
+    <color rgba="1 1 1 0.5" />
+  </material>
+  <link name="base_foot_point" />
+  <link name="base_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.061 0 -0.002" />
+      <mass value="45" />
+      <inertia ixx="1.64890027046204" ixy="2.03618256477967E-07" ixz="-0.214239940047264" iyy="2.2476601600647" iyz="9.48814005141685E-09" izz="1.25664019584656" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/body.stl" scale="1 1 1" />
+      </geometry>
+      <material name="gray" />
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://meshes/body.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_wheel_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 -0.003 0" />
+      <mass value="2" />
+      <inertia ixx="0.012573791667819" ixy="0" ixz="0" iyy="0.012573791667819" iyz="0" izz="0.0248062517493963" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/wheel.stl" scale="1 1 1" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin rpy="-1.570796 0 0" xyz="0 -0.003 0" />
+      <geometry>
+        <cylinder length="0.032" radius="0.1575" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_wheel_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 -0.003 0" />
+      <mass value="2" />
+      <inertia ixx="0.012573791667819" ixy="0" ixz="0" iyy="0.012573791667819" iyz="0" izz="0.0248062517493963" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/wheel.stl" scale="1 1 1" />
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin rpy="-1.570796 0 0" xyz="0 -0.003 0" />
+      <geometry>
+        <cylinder length="0.032" radius="0.1575" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="front_lrf_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 -0.0164" />
+      <mass value="0.400000006" />
+      <inertia ixx="0.000376666663214564" ixy="0" ixz="0" iyy="0.000376666663214564" iyz="0" izz="0.000326666660839692" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/utm30lx.stl" scale="1 1 1" />
+      </geometry>
+      <material name="Default-Diffuse" />
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://meshes/utm30lx.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="rear_lrf_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 -0.0164" />
+      <mass value="0.400000006" />
+      <inertia ixx="0.000376666663214564" ixy="0" ixz="0" iyy="0.000376666663214564" iyz="0" izz="0.000326666660839692" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/utm30lx.stl" scale="1 1 1" />
+      </geometry>
+      <material name="Default-Diffuse" />
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://meshes/utm30lx.stl" scale="1 1 1" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="camera_link" />
+  <joint name="base_foot_point_base_link_joint" type="fixed">
+    <origin xyz="0 0 -0.123" />
+    <parent link="base_foot_point" />
+    <child link="base_link" />
+  </joint>
+  <joint name="base_link_right_wheel_link_joint" type="continuous">
+    <origin xyz="0 -0.2775 0.1575" />
+    <parent link="base_link" />
+    <child link="right_wheel_link" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <joint name="base_link_left_wheel_link_joint" type="continuous">
+    <origin rpy="0 0 -3.141593" xyz="0 0.2775 0.1575" />
+    <parent link="base_link" />
+    <child link="left_wheel_link" />
+    <axis xyz="0 -1 0" />
+  </joint>
+  <joint name="base_link_front_lrf_link_joint" type="fixed">
+    <origin xyz="0.225 -0.245 0.195" />
+    <parent link="base_link" />
+    <child link="front_lrf_link" />
+  </joint>
+  <joint name="base_link_rear_lrf_link_joint" type="fixed">
+    <origin rpy="0 0 -3.141593" xyz="-0.485 0.245 0.195" />
+    <parent link="base_link" />
+    <child link="rear_lrf_link" />
+  </joint>
+  <joint name="base_link_camera_link_joint" type="fixed">
+    <origin xyz="0 0 0.195" />
+    <parent link="base_link" />
+    <child link="camera_link" />
+  </joint>
+  <transmission name="right_wheel_trans">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="right_wheel_joint">
+    <hardwareInterface>VelocityJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="right_wheel_motor">
+    <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    <mechanicalReduction>30</mechanicalReduction>
+  </actuator>
+</transmission>
+<transmission name="left_wheel_trans">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="left_wheel_joint">
+    <hardwareInterface>VelocityJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="left_wheel_motor">
+    <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    <mechanicalReduction>30</mechanicalReduction>
+  </actuator>
+</transmission>
+<gazebo>
+  <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+    <!-- <robotNamespace>fourth_robot</robotNamespace> -->
+  </plugin>
+</gazebo>
+<gazebo reference="base_link">
+  <selfCollide>false</selfCollide>
+  <mu1 value="0.05" />
+  <mu2 value="0.05" />
+</gazebo>
+<gazebo reference="right_wheel_link">
+  <selfCollide>false</selfCollide>
+  <mu1 value="0.8" />
+  <mu2 value="0.8" />
+</gazebo>
+<gazebo reference="left_wheel_link">
+  <selfCollide>false</selfCollide>
+  <mu1 value="0.8" />
+  <mu2 value="0.8" />
+</gazebo>
+<gazebo reference="front_lrf_link">
+  <sensor name="front_lrf_sensor" type="ray">
+    <pose>0 0 0 0 0 0</pose>
+    <visualize>true</visualize>
+    <update_rate>40</update_rate>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>720</samples>
+          <resolution>1</resolution>
+          <min_angle>-1.65806278939</min_angle>
+          <max_angle>1.65806278939</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.1</min>
+        <max>60.0</max>
+        <resolution>0.01</resolution>
+      </range>
+      <noise>
+        <type>gaussian</type>
+        <mean>0.0</mean>
+        <stddev>0.03</stddev>
+      </noise>
+    </ray>
+    <plugin filename="libgazebo_ros_laser.so" name="gazebo_ros_front_lrf_controller">
+      <topicName>scan1</topicName>
+      <frameName>front_lrf_link</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+<gazebo reference="rear_lrf_link">
+  <sensor name="rear_lrf_sensor" type="ray">
+    <pose>0 0 0 0 0 0</pose>
+    <visualize>true</visualize>
+    <update_rate>40</update_rate>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>720</samples>
+          <resolution>1</resolution>
+          <min_angle>-2.35619449019</min_angle>
+          <max_angle>2.35619449019</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.1</min>
+        <max>60.0</max>
+        <resolution>0.01</resolution>
+      </range>
+      <noise>
+        <type>gaussian</type>
+        <mean>0.0</mean>
+        <stddev>0.03</stddev>
+      </noise>
+    </ray>
+    <plugin filename="libgazebo_ros_laser.so" name="gazebo_ros_rear_lrf_controller">
+      <topicName>scan2</topicName>
+      <frameName>rear_lrf_link</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+</robot>

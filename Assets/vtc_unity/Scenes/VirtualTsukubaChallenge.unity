@@ -204,7 +204,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.27749634, y: 0.15749931, z: 0}
+  m_ConnectedAnchor: {x: -0.27750006, y: 0.15749931, z: -0.000006020069}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -213,7 +213,7 @@ HingeJoint:
   m_UseMotor: 0
   m_Motor:
     targetVelocity: 0
-    force: 0
+    force: 0.6
     freeSpin: 0
   m_UseLimits: 0
   m_Limits:
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 32046430}
   m_Layer: 0
   m_Name: base_link
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2329,7 +2329,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: fc41b734bfde87a4f93b5ee26eb24766, type: 2}
 --- !u!1001 &1384902530
@@ -2885,7 +2885,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 642753eb41a9ce740962cea4eba079d4, type: 2}
 --- !u!64 &1696069185
@@ -2899,7 +2899,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 84f5b15c7d8181b41afcd4557c90141e, type: 2}
 --- !u!1001 &1728573270
@@ -3307,7 +3307,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.27749634, y: 0.15749931, z: 0}
+  m_ConnectedAnchor: {x: 0.27750006, y: 0.15749931, z: 0.000006020069}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -3316,7 +3316,7 @@ HingeJoint:
   m_UseMotor: 0
   m_Motor:
     targetVelocity: 0
-    force: 0
+    force: 0.6
     freeSpin: 0
   m_UseLimits: 0
   m_Limits:
@@ -3863,7 +3863,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: fc41b734bfde87a4f93b5ee26eb24766, type: 2}
 --- !u!1 &2096810184

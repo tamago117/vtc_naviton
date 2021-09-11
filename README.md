@@ -149,6 +149,7 @@ We partly modify and utilize those Assets.
 - [Simple Cars Pack](https://assetstore.unity.com/packages/3d/vehicles/land/simple-cars-pack-97669)
 - [UAA - City Props - Vehicles](https://assetstore.unity.com/packages/3d/vehicles/land/uaa-city-props-vehicles-120339)
 - [Stylized Vehicles Pack - FREE](https://assetstore.unity.com/packages/3d/vehicles/land/stylized-vehicles-pack-free-150318)
+- [Standard Assets](https://assetstore.unity.com/packages/essentials/asset-packs/standard-assets-for-unity-2018-4-32351?locale=ja-JP)
 
 # LICENSE
 Copyright [2020] tamago117
